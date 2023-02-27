@@ -1,0 +1,17 @@
+.header {
+    grid-area: h;
+    background-color: cadetblue;
+}
+
+.header img {
+    margin-top: -32px;
+    width: 60px;
+    border-radius: 70px;
+}
+
+.react {
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-size: 28px;
+    color: black;
+}
