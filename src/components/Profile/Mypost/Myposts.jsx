@@ -8,8 +8,9 @@ const Myposts = () => {
             <div>
                 My posts
                 <div>
-                <textarea></textarea>
-                <button>Add post</button>
+                <textarea className={P.textarea} placeholder='Destination'></textarea> <br/>
+                    <button>Add post</button>
+                    <button>Remove post</button>
                 </div>
                 <div className={P.item}>
                     <Post />

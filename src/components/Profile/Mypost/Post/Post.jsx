@@ -7,6 +7,9 @@ const Post = () => {
                     <div className={P.item}>
                         <img src="https://bazametrov.ru/uploads/new-agency/default_logo_user.jpg"/>
                         post 1
+                        <div>
+                            <span>like</span>
+                        </div>
                     </div>
     );
 }
