@@ -13,9 +13,9 @@ const Myposts = () => {
                     <button>Remove post</button>
                 </div>
                 <div className={P.item}>
-                    <Post />
-                    <Post />
-                    <Post />
+                    <Post message='Hello, Who prefer React'/>
+                    <Post message='I can try to search info'/>
+                    <Post message='Perhaps, but it need a time'/>
             </div>
             </div>
     );
