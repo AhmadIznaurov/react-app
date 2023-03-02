@@ -4,7 +4,7 @@ import  Settings from './Settings.module.css';
 const settings = () => {
     return (
         <div>
-            News
+           Settings
         </div>
     );
 }
