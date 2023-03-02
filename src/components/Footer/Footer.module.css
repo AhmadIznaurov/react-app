@@ -1,0 +1,12 @@
+.footer {
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    grid-area: f;
+    background-color: teal;
+}
+
+.footer a {
+    text-decoration: none;
+    color: firebrick;
+}
