@@ -17,3 +17,8 @@ padding: 10px;
 .messages message{
 
 }
+
+.dialog a {
+    text-decoration: none;
+    color: white;
+}
