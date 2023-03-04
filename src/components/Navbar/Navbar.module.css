@@ -7,11 +7,11 @@
     list-style: none;
 }
 
-.nav li a {
+.item a {
     color: white;
     text-decoration: none;
 }
 
-.item.active a{
+.item a.active {
     color: gold;
 }
