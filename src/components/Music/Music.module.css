@@ -1,1 +1,18 @@
 
+.music_wrapper {
+    background-color: lightgreen;
+    height: 20vh;
+    margin-top: -21px;
+}
+.music_wrapper h1 {
+    text-align: center;
+    color: red;
+}
+.music {
+    text-align: center;
+
+}
+
+.music_p {
+    text-align: center;
+}
