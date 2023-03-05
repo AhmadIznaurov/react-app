@@ -1,17 +1,13 @@
 import React from "react";
-import P from "./Profile.module.css";
 import Myposts from "./Mypost/Myposts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 const Profile = () => {
     return (
         <div>
-            <div> <img src="https://million-wallpapers.ru/wallpapers/5/10/18230078710629953792/morskoj-zakat-volny.jpg"/>
-            </div>
-            <div>
-                ava + description
-            </div>
-           <Myposts />
+             <ProfileInfo />
+             <Myposts />
         </div>
     );
 }
