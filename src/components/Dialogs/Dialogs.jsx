@@ -35,26 +35,17 @@ let messagesData = [
 
 ]
 
+const dialogs = DialogsData.map(d => <DialogItem name={d.name}  id={d.id} />)
+const messages = messagesData.map(m => <Message message={m.message}/>)
+
 const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
-                <DialogItem name={DialogsData[0].name}  id={DialogsData[0].id} />
-                <DialogItem name={DialogsData[1].name}  id={DialogsData[1].id} />
-                <DialogItem name={DialogsData[2].name}  id={DialogsData[2].id} />
-                <DialogItem name={DialogsData[3].name}  id={DialogsData[3].id} />
-                <DialogItem name={DialogsData[4].name}  id={DialogsData[4].id} />
-                <DialogItem name={DialogsData[5].name}  id={DialogsData[5].id} />
-                <DialogItem name={DialogsData[6].name}  id={DialogsData[6].id} />
+                { dialogs }
             </div>
             <div className={s.messages}>
-                <Message message={messagesData[0].message}/>
-                <Message message={messagesData[1].message} />
-                <Message message={messagesData[2].message} />
-                <Message message={messagesData[3].message} />
-                <Message message={messagesData[4].message} />
-                <Message message={messagesData[5].message} />
-                <Message message={messagesData[6].message} />
+                { messages }
             </div>
         </div>
     );
