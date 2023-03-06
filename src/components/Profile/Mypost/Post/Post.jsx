@@ -1,14 +1,14 @@
 import React from "react";
-import P from "./Post.module.css";
+import s from "./Post.module.css";
 
 
 const Post = (props) => {
     return (
-                    <div className={P.item}>
+                    <div className={s.item}>
                         <img src="https://bazametrov.ru/uploads/new-agency/default_logo_user.jpg"/>
                         { props.message }
                         <div>
-                            <span>like</span>
+                            <span>like {props.likesCount}</span>
                         </div>
                     </div>
     );
