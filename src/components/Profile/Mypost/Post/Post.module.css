@@ -1,8 +1,9 @@
 .item {
-    color: white;
+    color: black;
 }
 
 .item img {
     width: 50px;
     border-radius: 50px;
 }
+

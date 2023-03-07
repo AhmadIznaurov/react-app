@@ -1,21 +1,25 @@
 import React from "react";
-import P from "./Myposts.module.css";
+import s from "./Myposts.module.css";
 import Post from "./Post/Post";
 
 
-const Myposts = () => {
+
+const Myposts = (props) => {
+
+
+    const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+
     return (
             <div>
                 My posts
                 <div>
-                <textarea></textarea>
-                <button>Add post</button>
+                <textarea className={s.textarea} placeholder='Destination'></textarea> <br/>
+                    <button>Add post</button>
+                    <button>Remove post</button>
                 </div>
-                <div className={P.item}>
-                    <Post />
-                    <Post />
-                    <Post />
-            </div>
+                <div className={s.item}>
+                    { postElements }
+                 </div>
             </div>
     );
 }
