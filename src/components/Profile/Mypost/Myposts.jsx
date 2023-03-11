@@ -9,7 +9,7 @@ const Myposts = (props) => {
 
     let postAdd = () => {
         let what = newPostElement.current.value
-       props.addPost(what);
+        props.addPost(what);
     }
 
     const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
