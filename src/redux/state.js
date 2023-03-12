@@ -6,7 +6,8 @@ const state = {
             {id: 1, message: 'Hello, Who prefer React', likesCount: 12},
             {id: 2, message: 'I can try to search info', likesCount: 15 },
             {id: 3, message: 'Perhaps, but it need a time', likesCount: 29}
-        ]
+        ],
+        newPostText: 'it-incubator.com'
     },
 
     messagesPage: {
@@ -33,16 +34,24 @@ const state = {
     }
 }
 
+window.state = state;
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 4,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     };
     state.profilePage.postData.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 }
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
 
 
 

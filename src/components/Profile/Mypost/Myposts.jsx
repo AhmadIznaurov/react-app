@@ -8,8 +8,12 @@ const Myposts = (props) => {
     let newPostElement = React.createRef()
 
     let postAdd = () => {
+        props.addPost();
+    }
+
+    let onPostChange = () => {
         let what = newPostElement.current.value
-        props.addPost(what);
+        props.updateNewPostText(what);
     }
 
     const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
@@ -18,7 +22,7 @@ const Myposts = (props) => {
             <div>
                 My posts
                 <div>
-                <textarea ref={newPostElement} className={s.textarea} placeholder='Destination'></textarea> <br/>
+                <textarea onChange={onPostChange} ref={newPostElement} className={s.textarea} placeholder='Destination' value={props.newPostText}></textarea> <br/>
                     <button onClick={postAdd}>Add post</button>
                     <button>Remove post</button>
                 </div>
