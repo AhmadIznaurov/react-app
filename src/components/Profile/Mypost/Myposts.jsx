@@ -5,7 +5,12 @@ import Post from "./Post/Post";
 
 
 const Myposts = (props) => {
+    let newPostElement = React.createRef()
 
+    let postAdd = () => {
+        let what = newPostElement.current.value
+        props.addPost(what);
+    }
 
     const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
@@ -13,8 +18,8 @@ const Myposts = (props) => {
             <div>
                 My posts
                 <div>
-                <textarea className={s.textarea} placeholder='Destination'></textarea> <br/>
-                    <button>Add post</button>
+                <textarea ref={newPostElement} className={s.textarea} placeholder='Destination'></textarea> <br/>
+                    <button onClick={postAdd}>Add post</button>
                     <button>Remove post</button>
                 </div>
                 <div className={s.item}>
