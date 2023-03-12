@@ -53,7 +53,4 @@ export let updateNewPostText = (newText) => {
 }
 
 
-
-
-
 export default state;
