@@ -16,14 +16,24 @@ import Settings from "./components/Settings/Settings";
 function App(props) {
 
 
-  return (
+
+    return (
       <BrowserRouter>
           <div className="app-wrapper">
           <Header />
           <div className="app-wrapper-content">
               <Routes>
                   <Route  path="/profile/*"
-                          element={<Profile profilePage={props.state.profilePage}
+
+                          element={<Profile state={props.state.profilePage}/>} />
+                  <Route  path="/dialogs/*"
+                          element={<Dialogs state={props.state.messagesPage} postAdd={props.postAdd}/>} />
+                  <Route  path="/news/*"
+                          element={<News  />}/>
+                  <Route  path="/music/*"
+                          element={<Music state={props.state.messagesPage} addMusic={props.addMusic} />} />
+                  <Route  path="/settings/*"
+                          element={<Settings state={props.state.messagesPage} settingChange={props.settingChange}/>} />
                                             addPost={props.addPost}
                                             updateNewPostText={props.updateNewPostText}
                   /> } />
@@ -35,6 +45,7 @@ function App(props) {
                           element={<Music/>} />
                   <Route  path="/settings/*"
                           element={<Settings/>} />
+
               </Routes>
 
           </div>

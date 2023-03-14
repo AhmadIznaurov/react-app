@@ -1,7 +1,6 @@
 
 .music_wrapper {
     background-color: lightgreen;
-    height: 20vh;
     margin-top: -21px;
 }
 .music_wrapper h1 {
@@ -15,4 +14,8 @@
 
 .music_p {
     text-align: center;
+}
+
+.container {
+margin-top: -40px;
 }
