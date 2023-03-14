@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../rerender";
+
 const state = {
     profilePage: {
         postData: [
@@ -60,6 +62,7 @@ export let addMusic = (postMusic) => {
             likesCount: 200
         }
         state.messagesPage.musicData.push(musics);
+        rerenderEntireTree(state);
 }
 
 export let postAdd = (postMessages) => {
@@ -71,7 +74,7 @@ export let postAdd = (postMessages) => {
         }
 
     state.messagesPage.dialogPostData.push(dialogs);
-
+    rerenderEntireTree(state);
 }
 
 export let settingChange = (settingsPost) => {
@@ -82,7 +85,21 @@ export let settingChange = (settingsPost) => {
             likesCount: 12
         }
         state.messagesPage.settingData.push(setPost);
+        rerenderEntireTree(state);
 }
+
+
+export let profilePageAdd = (settingsProfile) => {
+    let setProfile =
+        {
+            id: 1,
+            message: settingsProfile,
+            likesCount: 12
+        }
+    state.profilePage.postData.push(setProfile);
+    rerenderEntireTree(state);
+}
+
 
 
 export default state;

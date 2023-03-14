@@ -13,6 +13,7 @@ import Settings from "./components/Settings/Settings";
 
 
 
+
 function App(props) {
 
 
@@ -24,7 +25,7 @@ function App(props) {
           <div className="app-wrapper-content">
               <Routes>
                   <Route  path="/profile/*"
-                          element={<Profile state={props.state.profilePage}/>} />
+                          element={<Profile state={props.state.profilePage} profilePageAdd={props.profilePageAdd}/>} />
                   <Route  path="/dialogs/*"
                           element={<Dialogs state={props.state.messagesPage} postAdd={props.postAdd}/>} />
                   <Route  path="/news/*"
