@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./redux/state";
+import state, {addMusic, postAdd, settingChange} from "./redux/state";
 
-
+// postAdd('fiufiu');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +13,7 @@ root.render(
 
 
   <React.StrictMode>
-    <App state={state} />
+    <App state={state} postAdd={postAdd} settingChange={settingChange} addMusic={addMusic}/>
   </React.StrictMode>
 );
 

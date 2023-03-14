@@ -11,25 +11,28 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 
 
+
+
 function App(props) {
 
 
-  return (
+
+    return (
       <BrowserRouter>
           <div className="app-wrapper">
           <Header />
           <div className="app-wrapper-content">
               <Routes>
-                  <Route  path="/profile*"
+                  <Route  path="/profile/*"
                           element={<Profile state={props.state.profilePage}/>} />
-                  <Route  path="/dialogs*"
-                          element={<Dialogs state={props.state.messagesPage} />} />
-                  <Route  path="/news*"
-                          element={<News/>} />
-                  <Route  path="/music*"
-                          element={<Music/>} />
-                  <Route  path="/settings*"
-                          element={<Settings/>} />
+                  <Route  path="/dialogs/*"
+                          element={<Dialogs state={props.state.messagesPage} postAdd={props.postAdd}/>} />
+                  <Route  path="/news/*"
+                          element={<News  />}/>
+                  <Route  path="/music/*"
+                          element={<Music state={props.state.messagesPage} addMusic={props.addMusic} />} />
+                  <Route  path="/settings/*"
+                          element={<Settings state={props.state.messagesPage} settingChange={props.settingChange}/>} />
               </Routes>
 
           </div>
