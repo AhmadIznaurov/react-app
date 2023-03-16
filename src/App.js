@@ -26,7 +26,12 @@ function App(props) {
           <div className="app-wrapper-content">
               <Routes>
                   <Route  path="/profile/*"
+
                           element={<Profile profilePage={props.state.profilePage} profilePageAdd={props.profilePageAdd} updateNewPostText={props.updateNewPostText}/>} />
+
+
+                          element={<Profile state={props.state.profilePage}/>} />
+
                   <Route  path="/dialogs/*"
                           element={<Dialogs state={props.state.messagesPage} postAdd={props.postAdd}/>} />
                   <Route  path="/news/*"
@@ -35,6 +40,18 @@ function App(props) {
                           element={<Music state={props.state.messagesPage} addMusic={props.addMusic} />} />
                   <Route  path="/settings/*"
                           element={<Settings state={props.state.messagesPage} settingChange={props.settingChange}/>} />
+                                            addPost={props.addPost}
+                                            updateNewPostText={props.updateNewPostText}
+                  /> } />
+                  <Route  path="/dialogs/*"
+                          element={<Dialogs state={props.state.messagesPage} />} />
+                  <Route  path="/news/*"
+                          element={<News/>} />
+                  <Route  path="/music/*"
+                          element={<Music/>} />
+                  <Route  path="/settings/*"
+                          element={<Settings/>} />
+
               </Routes>
 
           </div>

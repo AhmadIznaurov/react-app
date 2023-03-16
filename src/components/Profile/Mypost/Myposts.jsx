@@ -8,12 +8,23 @@ import state from "../../../redux/state";
 const Myposts = (props) => {
     let newPostElement = React.createRef()
 
+
     let profilePageAdd = () => {
         props.profilePageAdd();
     }
 
     let onPostChanged = () => {
         let what = newPostElement.current.value;
+
+    let postAdd = () => {
+        props.addPost();
+    }
+
+    let onPostChange = () => {
+        let what = newPostElement.current.value
+
+        props.postAdd(what);
+
         props.updateNewPostText(what);
     }
 
@@ -23,8 +34,13 @@ const Myposts = (props) => {
             <div>
                 My posts
                 <div>
+
                 <textarea onChange={onPostChanged} ref={newPostElement} className={s.textarea} placeholder='Destination' value={props.onPostText}></textarea> <br/>
                     <button onClick={profilePageAdd}>Add post</button>
+
+                <textarea onChange={onPostChange} ref={newPostElement} className={s.textarea} placeholder='Destination' value={props.newPostText}></textarea> <br/>
+                    <button onClick={postAdd}>Add post</button>
+
                     <button>Remove post</button>
                 </div>
                 <div className={s.item}>
