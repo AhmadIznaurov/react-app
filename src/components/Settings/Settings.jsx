@@ -8,6 +8,7 @@ const settings = (props) => {
     let settingChange = () => {
         let what = newSettingElement.current.value;
         props.settingChange(what);
+        newSettingElement.current.value = '';
     }
 
     const postSettings = props.state.settingData.map(p => <Post message={p.message} likesCount={p.likesCount} />)

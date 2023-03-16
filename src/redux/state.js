@@ -1,4 +1,8 @@
+
+import {rerenderEntireTree} from "../rerender";
+
 import {rerenderEntireTree} from "../render";
+
 
 const state = {
     profilePage: {
@@ -7,7 +11,11 @@ const state = {
             {id: 2, message: 'I can try to search info', likesCount: 15 },
             {id: 3, message: 'Perhaps, but it need a time', likesCount: 29}
         ],
+
+        onPostText: 'it-incubator.com'
+
         newPostText: 'it-incubator.com'
+
     },
 
     messagesPage: {
@@ -55,6 +63,10 @@ const state = {
     }
 }
 
+window.state = state;
+
+
+
 
 export let addMusic = (postMusic) => {
     let musics  =
@@ -64,6 +76,7 @@ export let addMusic = (postMusic) => {
             likesCount: 200
         }
         state.messagesPage.musicData.push(musics);
+        rerenderEntireTree(state);
 }
 
 export let postAdd = (postMessages) => {
@@ -95,7 +108,7 @@ export let updateNewPostText = (newText) => {
 
 
     state.messagesPage.dialogPostData.push(dialogs);
-
+    rerenderEntireTree(state);
 }
 
 export let settingChange = (settingsPost) => {
@@ -106,7 +119,25 @@ export let settingChange = (settingsPost) => {
             likesCount: 12
         }
         state.messagesPage.settingData.push(setPost);
+        rerenderEntireTree(state);
 }
 
+
+export let profilePageAdd = () => {
+    let setProfile =
+        {
+            id: 1,
+            message: state.profilePage.onPostText,
+            likesCount: 12
+        }
+    state.profilePage.postData.push(setProfile);
+    state.profilePage.onPostText = '';
+    rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.onPostText = newText;
+    rerenderEntireTree(state);
+}
 
 export default state;

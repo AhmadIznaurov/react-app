@@ -10,6 +10,7 @@ const Music = (props) => {
     let addMusic = () => {
         let music = musicChangePost.current.value;
         props.addMusic(music);
+        musicChangePost.current.value = '';
     }
 
     const musicChange = props.state.musicData.map(m => <Post message={m.message} likesCount={m.likesCount} />)
