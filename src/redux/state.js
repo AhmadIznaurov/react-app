@@ -6,7 +6,8 @@ const state = {
             {id: 1, message: 'Hello, Who prefer React', likesCount: 12},
             {id: 2, message: 'I can try to search info', likesCount: 15 },
             {id: 3, message: 'Perhaps, but it need a time', likesCount: 29}
-        ]
+        ],
+        onPostText: 'it-incubator.com'
     },
 
     messagesPage: {
@@ -53,7 +54,7 @@ const state = {
         ]
     }
 }
-
+window.state = state;
 export let addMusic = (postMusic) => {
     let musics  =
         {
@@ -89,17 +90,21 @@ export let settingChange = (settingsPost) => {
 }
 
 
-export let profilePageAdd = (settingsProfile) => {
+export let profilePageAdd = () => {
     let setProfile =
         {
             id: 1,
-            message: settingsProfile,
+            message: state.profilePage.onPostText,
             likesCount: 12
         }
     state.profilePage.postData.push(setProfile);
+    state.profilePage.onPostText = '';
     rerenderEntireTree(state);
 }
 
-
+export let updateNewPostText = (newText) => {
+    state.profilePage.onPostText = newText;
+    rerenderEntireTree(state);
+}
 
 export default state;
