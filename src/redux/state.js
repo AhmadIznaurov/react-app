@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../rerender";
+let rerenderEntireTree = () => {
+    console.log('Element must changed')
+}
 
 const state = {
     profilePage: {
@@ -107,4 +109,7 @@ export let updateNewPostText = (newText) => {
     rerenderEntireTree(state);
 }
 
+export let subscribe = (observer) => {
+    rerenderEntireTree = observer;
+}
 export default state;
