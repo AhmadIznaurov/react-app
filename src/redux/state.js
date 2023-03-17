@@ -1,5 +1,11 @@
 
+let rerenderEntireTree = () => {
+    console.log('Element must changed')
+}
+
+
 import {rerenderEntireTree} from "../rerender";
+
 
 import {rerenderEntireTree} from "../render";
 
@@ -140,4 +146,7 @@ export let updateNewPostText = (newText) => {
     rerenderEntireTree(state);
 }
 
+export let subscribe = (observer) => {
+    rerenderEntireTree = observer;
+}
 export default state;
