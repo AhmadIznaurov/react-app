@@ -12,7 +12,7 @@ export let rerenderEntireTree = (state) => {
 
     root.render(
         <React.StrictMode>
-            <App state={store.getState()} postAdd={store.postAdd.bind(store)} settingChange={store.settingChange.bind(store)} addMusic={store.addMusic.bind(store)} profilePageAdd={store.profilePageAdd.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)}/>
+            <App state={state} postAdd={store.postAdd.bind(store)} settingChange={store.settingChange.bind(store)} addMusic={store.addMusic.bind(store)} profilePageAdd={store.profilePageAdd.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)}/>
         </React.StrictMode>
     );
 
