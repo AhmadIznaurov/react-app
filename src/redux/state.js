@@ -2,11 +2,11 @@
 import {rerenderEntireTree} from "../index";
 
 let store = {
-    _state:  {
+    _state: {
         profilePage: {
             postData: [
                 {id: 1, message: 'Hello, Who prefer React', likesCount: 12},
-                {id: 2, message: 'I can try to search info', likesCount: 15 },
+                {id: 2, message: 'I can try to search info', likesCount: 15},
                 {id: 3, message: 'Perhaps, but it need a time', likesCount: 29}
             ],
             onPostText: 'it-incubator.com'
@@ -59,7 +59,7 @@ const state = {
 
             ],
 
-            dialogPostData : [
+            dialogPostData: [
                 {
                     id: 3,
                     message: 'Kabzda kak ne prosto',
@@ -68,29 +68,33 @@ const state = {
             ],
 
 
-            settingData : [
+            settingData: [
                 {id: 1, message: 'Hello, Who prefer React', likesCount: 12},
             ],
 
-            musicData : [
+            musicData: [
                 {
-                    id:1,
+                    id: 1,
                     message: 'Music in not my life',
                     likesCount: 200
                 },
             ]
         }
     },
-    getState() {
-      return this._state
-    },
-    _rerenderEntireTree()  {
+    _rerenderEntireTree() {
         console.log('Element must changed')
     },
-    addMusic(postMusic)  {
-        let musics  =
+
+    getState() {
+        return this._state
+    },
+    subscribe(observer) {
+        this._rerenderEntireTree = observer;
+    },
+    addMusic(postMusic) {
+        let musics =
             {
-                id:1,
+                id: 1,
                 message: postMusic,
                 likesCount: 200
 
@@ -98,6 +102,9 @@ const state = {
         this._state.messagesPage.musicData.push(musics);
         this._rerenderEntireTree(this._state);
     },
+
+    settingChange(settingsPost) {
+
     postAdd(postMessages)  {
         let dialogs =
             {
@@ -175,6 +182,7 @@ export let settingChange = (settingsPost) => {
         this._rerenderEntireTree(this._state);
     },
     settingChange(settingsPost)  {
+
         let setPost =
             {
                 id: 1,
@@ -184,26 +192,34 @@ export let settingChange = (settingsPost) => {
         this._state.messagesPage.settingData.push(setPost);
         this._rerenderEntireTree(this._state);
     },
-    profilePageAdd() {
+    dispatch(action) {
+        if (action.type === 'PROFILE-PAGE-ADD') {
         let setProfile =
-            {
-                id: 1,
-                message: this._state.profilePage.onPostText,
-                likesCount: 12
-            }
-        this._state.profilePage.postData.push(setProfile);
-        this._state.profilePage.onPostText = '';
-        this._rerenderEntireTree(this._state);
-    },
-    updateNewPostText(newText)  {
-        this._state.profilePage.onPostText = newText;
-        this._rerenderEntireTree(this._state);
-    },
-    subscribe(observer)  {
-        this._rerenderEntireTree = observer;
-    }
-}
+                {
+                    id: 1,
+                    message: this._state.profilePage.onPostText,
+                    likesCount: 12
+                }
+            this._state.profilePage.postData.push(setProfile);
+            this._state.profilePage.onPostText = '';
+            this._rerenderEntireTree(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.onPostText = action.newText;
+            this._rerenderEntireTree(this._state);
+        } else if (action.type === 'POST-ADD') {
+            let dialogs =
+                {
+                    id: 3,
+                    message: action.messagesData,
+                    likesCount: 0
+                }
+            this._state.messagesPage.dialogPostData.push(dialogs);
+            this._rerenderEntireTree(this._state);
+        }
 
+    }
+
+}
 
 window.store = store;
 export default store;
