@@ -15,8 +15,8 @@ const Dialogs = (props) => {
 
     let addDialogButton = () => {
         let text = newDialogsElement.current.value;
-        props.postAdd(text);
         newDialogsElement.current.value = '';
+        props.dispatch ({ type: 'POST-ADD', messagesData: text});
     }
     return (
         <div className={s.dialogs}>

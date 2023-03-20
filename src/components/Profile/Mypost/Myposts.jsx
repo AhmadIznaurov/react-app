@@ -6,18 +6,20 @@ import Post from "./Post/Post";
 
 
 const Myposts = (props) => {
+    const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+
     let newPostElement = React.createRef()
 
     let profilePageAdd = () => {
-        props.profilePageAdd();
+        props.dispatch({ type: 'PROFILE-PAGE-ADD'});
     }
 
     let onPostChanged = () => {
-        let what = newPostElement.current.value;
-        props.updateNewPostText(what);
+        let text = newPostElement.current.value;
+        props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text});
     }
 
-    const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+
 
     return (
             <div>
