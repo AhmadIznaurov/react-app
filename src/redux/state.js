@@ -192,6 +192,7 @@ export let settingChange = (settingsPost) => {
         this._state.messagesPage.settingData.push(setPost);
         this._rerenderEntireTree(this._state);
     },
+
     dispatch(action) {
         if (action.type === 'PROFILE-PAGE-ADD') {
         let setProfile =
