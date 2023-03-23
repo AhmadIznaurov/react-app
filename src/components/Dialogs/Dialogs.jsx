@@ -18,6 +18,7 @@ const Dialogs = (props) => {
         newDialogsElement.current.value = '';
         props.dispatch ({ type: 'POST-ADD', messagesData: text});
     }
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
