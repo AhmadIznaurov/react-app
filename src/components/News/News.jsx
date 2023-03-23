@@ -2,8 +2,10 @@ import  React from 'react'
 import  News from './News.module.css';
 
 const news = () => {
+
     return (
         <div className={News.news}>
+
             <h1>News JavaScript</h1>
             <article>
                 <pre className={News.pre}>

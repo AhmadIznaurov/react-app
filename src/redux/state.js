@@ -45,6 +45,7 @@ let store = {
             settingData: [
                 {id: 1, message: 'Hello, Who prefer React', likesCount: 12},
             ],
+            settingPost: 'Setting some skills',
 
             musicData: [
                 {
@@ -52,7 +53,8 @@ let store = {
                     message: 'Music in not my life',
                     likesCount: 200
                 },
-            ]
+            ],
+            postMusic: 'music',
         }
     },
     _rerenderEntireTree() {
@@ -65,25 +67,38 @@ let store = {
     subscribe(observer) {
         this._rerenderEntireTree = observer;
     },
-    addMusic(postMusic) {
+    addMusic() {
         let musics =
             {
                 id: 1,
-                message: postMusic,
+                message: this._state.messagesPage.postMusic,
                 likesCount: 200
             }
         this._state.messagesPage.musicData.push(musics);
+        this._state.messagesPage.postMusic= '';
         this._rerenderEntireTree(this._state);
     },
-    settingChange(settingsPost) {
+
+   addPostMusic (newMusic)  {
+        this._state.messagesPage.postMusic = newMusic;
+        this._rerenderEntireTree(this._state);
+    },
+
+    settingChange() {
         let setPost =
             {
                 id: 1,
-                message: settingsPost,
+                message: this._state.messagesPage.settingPost,
                 likesCount: 12
             }
         this._state.messagesPage.settingData.push(setPost);
+        this._state.messagesPage.settingPost = '';
         this._rerenderEntireTree(this._state);
+    },
+
+    settingPost(post) {
+            this._state.messagesPage.settingPost = post;
+            this._rerenderEntireTree(this._state);
     },
     dispatch(action) {
         if (action.type === 'PROFILE-PAGE-ADD') {

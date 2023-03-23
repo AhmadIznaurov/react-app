@@ -32,9 +32,9 @@ function App(props) {
                   <Route  path="/news/*"
                           element={<News  />}/>
                   <Route  path="/music/*"
-                          element={<Music state={props.state.messagesPage} addMusic={props.addMusic} />} />
+                          element={<Music state={props.state.messagesPage} addMusic={props.addMusic} addPostMusic={props.addPostMusic}/>} />
                   <Route  path="/settings/*"
-                          element={<Settings state={props.state.messagesPage} settingChange={props.settingChange}/>} />
+                          element={<Settings state={props.state.messagesPage} settingChange={props.settingChange} settingPost={props.settingPost}/>}/>
               </Routes>
 
           </div>
