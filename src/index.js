@@ -15,6 +15,8 @@ export let rerenderEntireTree = (state) => {
             <App state={state} dispatch={store.dispatch.bind(store)}
                  settingChange={store.settingChange.bind(store)}
                  addMusic={store.addMusic.bind(store)}
+                 addPostMusic={store.addPostMusic.bind(store)}
+                 settingPost={store.settingPost.bind(store)}
                   />
         </React.StrictMode>
     );

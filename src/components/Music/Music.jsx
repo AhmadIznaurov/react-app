@@ -4,16 +4,18 @@ import Post from "../Profile/Mypost/Post/Post";
 
 
 const Music = (props) => {
+    const musicChange = props.state.musicData.map(m => <Post message={m.message} likesCount={m.likesCount} />)
 
     let musicChangePost = React.createRef();
 
     let addMusic = () => {
-        let music = musicChangePost.current.value;
-        props.addMusic(music);
-        musicChangePost.current.value = '';
+        props.addMusic()
     }
 
-    const musicChange = props.state.musicData.map(m => <Post message={m.message} likesCount={m.likesCount} />)
+ let addPostMusic = () => {
+        let textMusic = musicChangePost.current.value;
+        props.addPostMusic(textMusic);
+ }
 
 
     return (
@@ -26,7 +28,7 @@ const Music = (props) => {
             <p className={m.music_p}>If i scared some strange noise, i trying to be invisible. Ha ha, so funny.</p>
             <div className={m.container}>
                 <div>
-                    <textarea ref={musicChangePost}></textarea>
+                    <textarea ref={musicChangePost} onChange={addPostMusic} value={props.state.postMusic} />
                 </div>
                 <div>
                     <button onClick={addMusic}>Add music</button>
