@@ -1,6 +1,13 @@
 
 import {rerenderEntireTree} from "../index";
 
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const PROFILE_PAGE_ADD ='PROFILE-PAGE-ADD';
+
+
+export const profilePageAddActionCreator = () => ({type: PROFILE_PAGE_ADD});
+export const onPostChangedActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
 let store = {
     _state: {
         profilePage: {
