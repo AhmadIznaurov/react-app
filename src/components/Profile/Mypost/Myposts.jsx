@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Myposts.module.css";
 import Post from "./Post/Post";
-
+import {onPostChangedActionCreator, profilePageAddActionCreator} from "../../../redux/state";
 
 
 
@@ -11,15 +11,13 @@ const Myposts = (props) => {
     let newPostElement = React.createRef()
 
     let profilePageAdd = () => {
-        props.dispatch({ type: 'PROFILE-PAGE-ADD'});
+        props.dispatch(profilePageAddActionCreator());
     }
 
     let onPostChanged = () => {
         let text = newPostElement.current.value;
-        props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text});
+        props.dispatch(onPostChangedActionCreator(text));
     }
-
-
 
     return (
             <div>
