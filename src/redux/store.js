@@ -1,8 +1,8 @@
 import {rerenderEntireTree} from "../index";
+import profileReducer from "./profile-reducer";
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const PROFILE_PAGE_ADD ='PROFILE-PAGE-ADD';
-
 
 export const profilePageAddActionCreator = () => ({type: PROFILE_PAGE_ADD});
 export const onPostChangedActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
@@ -108,30 +108,8 @@ let store = {
             this._rerenderEntireTree(this._state);
     },
     dispatch(action) {
-        if (action.type === 'PROFILE-PAGE-ADD') {
-        let setProfile =
-                {
-                    id: 1,
-                    message: this._state.profilePage.onPostText,
-                    likesCount: 12
-                }
-            this._state.profilePage.postData.push(setProfile);
-            this._state.profilePage.onPostText = '';
-            this._rerenderEntireTree(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.onPostText = action.newText;
-            this._rerenderEntireTree(this._state);
-        } else if (action.type === 'POST-ADD') {
-            let dialogs =
-                {
-                    id: 3,
-                    message: action.messagesData,
-                    likesCount: 0
-                }
-            this._state.messagesPage.dialogPostData.push(dialogs);
-            this._rerenderEntireTree(this._state);
-        }
-
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._rerenderEntireTree(this._state);
     }
 
 }
