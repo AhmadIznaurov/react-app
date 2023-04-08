@@ -3,8 +3,7 @@ import  s from './Dialogs.module.css';
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import Post from "../Profile/Mypost/Post/Post";
-
-
+import {addButtonDialogActionCreator, addDialogActionCreator} from "../../redux/store";
 
 const Dialogs = (props) => {
     const dialogs = props.state.dialogsData.map(d => <DialogItem name={d.name}  id={d.id} />)
@@ -13,10 +12,15 @@ const Dialogs = (props) => {
 
     let newDialogsElement = React.createRef();
 
-    let addDialogButton = () => {
+
+
+  let addButtonDialog = () => {
+    props.dispatch(addButtonDialogActionCreator())
+  }
+
+    let addDialog = () => {
         let text = newDialogsElement.current.value;
-        newDialogsElement.current.value = '';
-        props.dispatch ({ type: 'POST-ADD', messagesData: text});
+        props.dispatch(addDialogActionCreator(text));
     }
     return (
         <div className={s.dialogs}>
@@ -28,10 +32,10 @@ const Dialogs = (props) => {
             </div>
             <div className={s.container}>
                 <div>
-                    <textarea ref={newDialogsElement}></textarea>
+                    <textarea ref={newDialogsElement} onChange={addDialog} value={props.state.dialogsPost}/>
                 </div>
                 <div>
-                    <button onClick={addDialogButton}>Add post</button>
+                    <button onClick={addButtonDialog}>Add post</button>
                 </div>
                 {dialogPost}
             </div>

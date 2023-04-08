@@ -1,6 +1,8 @@
 import  React from 'react'
 import  m from './Music.module.css'
 import Post from "../Profile/Mypost/Post/Post";
+import {addMusicActionCreator, addPostMusicActionCreator} from "../../redux/store";
+
 
 
 const Music = (props) => {
@@ -9,12 +11,12 @@ const Music = (props) => {
     let musicChangePost = React.createRef();
 
     let addMusic = () => {
-        props.addMusic()
+        props.dispatch(addMusicActionCreator())
     }
 
  let addPostMusic = () => {
         let textMusic = musicChangePost.current.value;
-        props.addPostMusic(textMusic);
+        props.dispatch(addPostMusicActionCreator(textMusic));
  }
 
 

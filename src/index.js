@@ -3,7 +3,7 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import store  from "./redux/redux-store";
+import store  from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -11,12 +11,7 @@ export let rerenderEntireTree = (state) => {
 
     root.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)}
-                 settingChange={store.settingChange.bind(store)}
-                 addMusic={store.addMusic.bind(store)}
-                 addPostMusic={store.addPostMusic.bind(store)}
-                 settingPost={store.settingPost.bind(store)}
-                  />
+            <App state={state} dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>
     );
 

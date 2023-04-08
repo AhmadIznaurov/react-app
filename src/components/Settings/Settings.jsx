@@ -1,20 +1,22 @@
 import  React from 'react'
 import  s from './Settings.module.css';
 import Post from "../Profile/Mypost/Post/Post";
+import {settingChangeActionCreator, settingPostActionCreator} from "../../redux/store";
 
 const settings = (props) => {
 
     const postSettings = props.state.settingData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+
     let newSettingElement = React.createRef()
 
     let settingChange = () => {
-        props.settingChange()
+        props.dispatch(settingChangeActionCreator())
 
     }
 
 let settingPost = () => {
     let setting = newSettingElement.current.value;
-    props.settingPost(setting);
+    props.dispatch(settingPostActionCreator(setting));
 }
 
     return (

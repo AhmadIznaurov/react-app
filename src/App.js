@@ -30,11 +30,11 @@ function App(props) {
                   <Route  path="/dialogs/*"
                           element={<Dialogs state={props.state.messagesPage} dispatch={props.dispatch}/>} />
                   <Route  path="/news/*"
-                          element={<News  />}/>
+                          element={<News state={props.state.messagesPage} dispatch={props.dispatch}/>}/>
                   <Route  path="/music/*"
-                          element={<Music state={props.state.messagesPage} addMusic={props.addMusic} addPostMusic={props.addPostMusic}/>} />
+                          element={<Music state={props.state.messagesPage} dispatch={props.dispatch} />} />
                   <Route  path="/settings/*"
-                          element={<Settings state={props.state.messagesPage} settingChange={props.settingChange} settingPost={props.settingPost}/>}/>
+                          element={<Settings state={props.state.messagesPage} dispatch={props.dispatch} />}/>
               </Routes>
 
           </div>
