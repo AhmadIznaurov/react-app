@@ -1,7 +1,8 @@
 import React from 'react'
 import  News from './News.module.css';
 import Post from "../Profile/Mypost/Post/Post"
-import {addButtonClickActionCreator, addNewsActionCreator} from "../../redux/store";
+import {addButtonClickActionCreator, addNewsActionCreator} from "../../redux/news-reducer";
+
 
 const news = (props) => {
     const postNews = props.state.newsData.map(p => <Post message={p.message} likesCount={p.likesCount} />)

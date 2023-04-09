@@ -3,7 +3,10 @@ import  s from './Dialogs.module.css';
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import Post from "../Profile/Mypost/Post/Post";
-import {addButtonDialogActionCreator, addDialogActionCreator} from "../../redux/store";
+import {addButtonDialogActionCreator, addDialogActionCreator} from "../../redux/dialogs-reducer";
+
+
+
 
 const Dialogs = (props) => {
     const dialogs = props.state.dialogsData.map(d => <DialogItem name={d.name}  id={d.id} />)

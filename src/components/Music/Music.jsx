@@ -1,7 +1,8 @@
 import  React from 'react'
 import  m from './Music.module.css'
 import Post from "../Profile/Mypost/Post/Post";
-import {addMusicActionCreator, addPostMusicActionCreator} from "../../redux/store";
+import {addMusicActionCreator, addPostMusicActionCreator} from "../../redux/music-reducer";
+
 
 
 

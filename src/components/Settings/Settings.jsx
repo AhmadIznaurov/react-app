@@ -1,7 +1,9 @@
 import  React from 'react'
 import  s from './Settings.module.css';
 import Post from "../Profile/Mypost/Post/Post";
-import {settingChangeActionCreator, settingPostActionCreator} from "../../redux/store";
+import {settingChangeActionCreator, settingPostActionCreator} from "../../redux/settings-reducer";
+
+
 
 const settings = (props) => {
 

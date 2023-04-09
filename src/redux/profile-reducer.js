@@ -30,4 +30,7 @@ const profileReducer = (state = initializeState, action) => {
     }
 }
 
+export const profilePageAddActionCreator = () => ({type: PROFILE_PAGE_ADD});
+export const onPostChangedActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
 export default profileReducer;

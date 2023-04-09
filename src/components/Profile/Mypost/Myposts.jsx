@@ -1,7 +1,8 @@
 import React from "react";
 import s from "./Myposts.module.css";
 import Post from "./Post/Post";
-import {onPostChangedActionCreator, profilePageAddActionCreator} from "../../../redux/store";
+import {onPostChangedActionCreator, profilePageAddActionCreator} from "../../../redux/profile-reducer";
+
 
 
 
