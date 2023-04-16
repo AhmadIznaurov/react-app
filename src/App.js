@@ -4,11 +4,12 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Music from "./components/Music/Music";
-import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import NewsContainer from "./components/News/NewsContainer";
+import MusicContainer from "./components/Music/MusicContainer";
+import SettingsContainer from "./components/Settings/SettingsContainer";
 
 
 
@@ -26,15 +27,15 @@ function App(props) {
           <div className="app-wrapper-content">
               <Routes>
                   <Route  path="/profile/*"
-                          element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />} />
+                          element={<Profile store={props.store}/>}/>
                   <Route  path="/dialogs/*"
-                          element={<Dialogs state={props.state.messagesPage} dispatch={props.dispatch}/>} />
+                          element={<DialogsContainer store={props.store}/>} />
                   <Route  path="/news/*"
-                          element={<News state={props.state.newsPage} dispatch={props.dispatch}/>}/>
+                          element={<NewsContainer store={props.store}/>}/>
                   <Route  path="/music/*"
-                          element={<Music state={props.state.musicPage} dispatch={props.dispatch} />} />
+                          element={<MusicContainer store={props.store} />} />
                   <Route  path="/settings/*"
-                          element={<Settings state={props.state.settingPage} dispatch={props.dispatch} />}/>
+                          element={<SettingsContainer store={props.store} />}/>
               </Routes>
 
           </div>

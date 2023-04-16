@@ -1,22 +1,22 @@
 import React from 'react'
 import  News from './News.module.css';
 import Post from "../Profile/Mypost/Post/Post"
-import {addButtonClickActionCreator, addNewsActionCreator} from "../../redux/news-reducer";
 
 
 const news = (props) => {
-    const postNews = props.state.newsData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    const postElements = props.newsPostData.map(s => <Post message={s.message} LikesCount={s.LikesCount}/>)
 
-    let newsChangeRef = React.createRef()
+    const addRefElement = React.createRef()
 
-    let addNews = () => {
-       let news = newsChangeRef.current.value;
-        props.dispatch(addNewsActionCreator(news));
+    const addPostNewsElement = () => {
+        props.addPostNewsElement()
     }
 
-    let addButtonClick = () => {
-        props.dispatch(addButtonClickActionCreator())
+    const OnPostNewsElement = () => {
+        let text = addRefElement.current.value
+        props.OnPostNewsElement(text)
     }
+
     return (
         <div className={News.news}>
 
@@ -32,12 +32,12 @@ const news = (props) => {
                </span>
                     <div>
                         <div>
-                            <textarea ref={newsChangeRef} onChange={addNews} value={props.state.addPostNews}/>
+                            <textarea ref={addRefElement} onChange={OnPostNewsElement} value={props.onNewsPost}/>
                         </div>
                         <div>
-                            <button onClick={addButtonClick}>Add news</button>
+                            <button onClick={addPostNewsElement}>Add news</button>
                         </div>
-                        { postNews }
+                        { postElements}
                     </div>
 
                     <br/> There is not much time left in this rough year of 2020 and I want to finish it on a positive note. <br/>

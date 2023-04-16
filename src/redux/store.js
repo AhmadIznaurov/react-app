@@ -65,14 +65,12 @@ let store = {
                 postMusic: 'music',
             },
 
-
-
-            newsPage: {
-                newsData: [
-                    {id: 1, message: 'Hello, i prefer to get fresh news', likesCount: 52},
-                ],
-                addPostNews: 'this is news',
-            },
+        newsPage: {
+            newsData: [
+                {id: 1, message: 'Hello, i prefer to get fresh news', likesCount: 52},
+            ],
+            addPostNews: 'this is news',
+        },
 
     },
 
