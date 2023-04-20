@@ -4,37 +4,32 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Music from "./components/Music/Music";
-import News from "./components/News/News";
-import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import NewsContainer from "./components/News/NewsContainer";
+import MusicContainer from "./components/Music/MusicContainer";
+import SettingsContainer from "./components/Settings/SettingsContainer";
 
 
+function App() {
 
-
-function App(props) {
-
-
-  return (
+    return (
       <BrowserRouter>
+
           <div className="app-wrapper">
           <Header />
           <div className="app-wrapper-content">
               <Routes>
                   <Route  path="/profile/*"
-                          element={<Profile profilePage={props.state.profilePage}
-                                            addPost={props.addPost}
-                                            updateNewPostText={props.updateNewPostText}
-                  /> } />
+                      element={<Profile />}/>
                   <Route  path="/dialogs/*"
-                          element={<Dialogs state={props.state.messagesPage} />} />
+                          element={<DialogsContainer />}/>
                   <Route  path="/news/*"
-                          element={<News/>} />
+                          element={<NewsContainer />}/>
                   <Route  path="/music/*"
-                          element={<Music/>} />
+                          element={<MusicContainer  />}/>
                   <Route  path="/settings/*"
-                          element={<Settings/>} />
+                          element={<SettingsContainer  />}/>
               </Routes>
 
           </div>

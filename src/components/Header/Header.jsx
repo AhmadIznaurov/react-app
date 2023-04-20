@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <header className={H.header}>
             <div className={H.react}>React App</div>
-            <img src="https://play-lh.googleusercontent.com/6UgEjh8Xuts4nwdWzTnWH8QtLuHqRMUB7dp24JYVE2xcYzq4HA8hFfcAbU-R-PC_9uA1"/>
+            <img src="https://i.morioh.com/2019/12/09/2669b86b772e.jpg"/>
         </header>
     );
 }

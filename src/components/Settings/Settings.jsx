@@ -1,11 +1,36 @@
 import  React from 'react'
-import  Settings from './Settings.module.css';
+import  s from './Settings.module.css';
+import Post from "../Profile/Mypost/Post/Post";
+
+
+
+const settings = (props) => {
+    const postSettings = props.settingData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+
+    let newSettingElement = React.createRef()
+
+    let settingChange = () => {
+        props.settingChange()
+
+    }
+    let settingPost = () => {
+    let setting = newSettingElement.current.value;
+    props.settingPost(setting);
+}
 
 
 const settings = () => {
+
     return (
-        <div>
+        <div className={s.setting}>
            Settings
+            <div>
+                <textarea ref={newSettingElement} onChange={settingPost} value={props.setPost}/>
+            </div>
+            <div>
+                <button onClick={settingChange}>Add click</button>
+            </div>
+            {postSettings}
         </div>
     );
 }
