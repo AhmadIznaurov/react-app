@@ -5,37 +5,31 @@ import Profile from "./components/Profile/Profile";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NewsContainer from "./components/News/NewsContainer";
 import MusicContainer from "./components/Music/MusicContainer";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 
 
-
-
-
-
-function App(props) {
-
-
+function App() {
 
     return (
       <BrowserRouter>
+
           <div className="app-wrapper">
           <Header />
           <div className="app-wrapper-content">
               <Routes>
                   <Route  path="/profile/*"
-                          element={<Profile store={props.store}/>}/>
+                          element={<Profile />}/>
                   <Route  path="/dialogs/*"
-                          element={<DialogsContainer store={props.store}/>} />
+                          element={<DialogsContainer />}/>
                   <Route  path="/news/*"
-                          element={<NewsContainer store={props.store}/>}/>
+                          element={<NewsContainer />}/>
                   <Route  path="/music/*"
-                          element={<MusicContainer store={props.store} />} />
+                          element={<MusicContainer  />}/>
                   <Route  path="/settings/*"
-                          element={<SettingsContainer store={props.store} />}/>
+                          element={<SettingsContainer  />}/>
               </Routes>
 
           </div>

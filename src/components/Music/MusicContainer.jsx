@@ -1,30 +1,32 @@
 import  React from 'react'
 import Music from "./Music";
 import {addMusicActionCreator, addPostMusicActionCreator} from "../../redux/music-reducer";
+import StoreContext from "../../StoreContext";
 
 
+const MusicContainer= () => {
 
+    return <StoreContext.Consumer >
+        {
+            (store) => {
+                let state = store.getState();
+                let addMusic = () => {
+                    store.dispatch(addMusicActionCreator())
+                }
 
-const MusicContainer= (props) => {
-    let state = props.store.getState()
+                let addPostMusic = (textMusic) => {
+                    let action= addPostMusicActionCreator(textMusic)
+                    store.dispatch(action);
+                }
 
-    let addMusic = () => {
-        props.store.dispatch(addMusicActionCreator())
-    }
+                return <Music addMusic={addMusic} addPostMusic={addPostMusic}
+                              musicData={state.musicPage.musicData}
+                              postMusic={state.musicPage.postMusic}/>
+            }
+            }
 
-    let addPostMusic = (textMusic) => {
-        let action= addPostMusicActionCreator(textMusic)
-        props.store.dispatch(action);
- }
+        </StoreContext.Consumer>
 
-
-    return (
-        <Music addMusic={addMusic} addPostMusic={addPostMusic}
-               musicData={state.musicPage.musicData}
-               postMusic={state.musicPage.postMusic}/>
-
-
-    );
 }
 
 export  default MusicContainer;
