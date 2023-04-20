@@ -18,6 +18,9 @@ const settings = (props) => {
     props.settingPost(setting);
 }
 
+
+const settings = () => {
+
     return (
         <div className={s.setting}>
            Settings

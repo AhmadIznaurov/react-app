@@ -58,6 +58,8 @@ let store = {
         console.log('Element must changed')
     },
 
+export default state;
+
     getState() {
         return this._state
     },
