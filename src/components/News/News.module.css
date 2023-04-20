@@ -4,7 +4,18 @@
     font-size: 22px;
 }
 
-.pre img {
-    width: 450px;
+.pre imgage {
     margin-left: 10px;
+}
+
+.links a {
+   text-decoration: none;
+}
+
+.links a:hover {
+    color: green;
+}
+
+.news {
+
 }

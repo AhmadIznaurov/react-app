@@ -1,10 +1,10 @@
-
 import React from 'react';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import store  from "./redux/state";
+import StoreContext from "./StoreContext";
+import store from "./redux/redux-store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,35 +12,20 @@ export let rerenderEntireTree = (state) => {
 
     root.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)}
-                 settingChange={store.settingChange.bind(store)}
-                 addMusic={store.addMusic.bind(store)}
-                 addPostMusic={store.addPostMusic.bind(store)}
-                 settingPost={store.settingPost.bind(store)}
-                  />
+            <StoreContext.Provider value={store}>
+            <App />
+            </StoreContext.Provider>
         </React.StrictMode>
     );
-
 }
-
-import reportWebVitals from './reportWebVitals';
-
-import state, {addMusic, postAdd, settingChange} from "./redux/state";
-
-
-
-
-store.subscribe(rerenderEntireTree);
 
 
 rerenderEntireTree(store.getState());
 
-rerenderEntireTree(state);
-
-import {rerenderEntireTree} from "./render";
-import state from "./redux/state";
-
-rerenderEntireTree(state);
+store.subscribe( () => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+});
 
 
 

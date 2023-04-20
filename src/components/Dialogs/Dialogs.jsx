@@ -7,16 +7,22 @@ import Post from "../Profile/Mypost/Post/Post";
 
 
 const Dialogs = (props) => {
-    const dialogs = props.state.dialogsData.map(d => <DialogItem name={d.name}  id={d.id} />)
-    const messages = props.state.messagesData.map(m => <Message message={m.message}/>)
-    const dialogPost = props.state.dialogPostData.map(m => <Post message={m.message} likesCount={m.likesCount}/>)
+    const dialogs = props.dialogsData.map(d => <DialogItem name={d.name}  id={d.id} />)
+    const messages = props.messagesData.map(m => <Message message={m.message}/>)
+    const dialogPost = props.dialogPostData.map(m => <Post message={m.message} likesCount={m.likesCount}/>)
 
     let newDialogsElement = React.createRef();
 
-    let addDialogButton = () => {
+
+
+  let addButtonDialog = () => {
+      props.addButtonDialog()
+
+  }
+
+    let addDialog = () => {
         let text = newDialogsElement.current.value;
-        newDialogsElement.current.value = '';
-        props.dispatch ({ type: 'POST-ADD', messagesData: text});
+         props.addDialog(text)
     }
 
     return (
@@ -29,10 +35,10 @@ const Dialogs = (props) => {
             </div>
             <div className={s.container}>
                 <div>
-                    <textarea ref={newDialogsElement}></textarea>
+                    <textarea ref={newDialogsElement} onChange={addDialog} value={props.dialogsPost}/>
                 </div>
                 <div>
-                    <button onClick={addDialogButton}>Add post</button>
+                    <button onClick={addButtonDialog}>Add post</button>
                 </div>
                 {dialogPost}
             </div>
