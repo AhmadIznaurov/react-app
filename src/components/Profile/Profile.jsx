@@ -1,6 +1,8 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MypostsContainer from "./Mypost/MypostsContainer";
+import MyPostsContainer from "./Mypost/MypostsContainer";
+
+
 
 
 
@@ -12,7 +14,7 @@ const Profile = (props) => {
     return (
         <div>
              <ProfileInfo />
-             <MypostsContainer />
+             <MyPostsContainer />
 
         </div>
     );

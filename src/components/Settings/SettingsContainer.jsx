@@ -1,34 +1,30 @@
 import  React from 'react'
 import Settings from "./Settings";
 import {settingChangeActionCreator, settingPostActionCreator} from "../../redux/settings-reducer";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
 
 
-const settingsContainer = () => {
-    return <StoreContext.Consumer >
-        {
-            (store) => {
-                let state = store.getState();
+let mapStateToProps = (state) => {
+    return {
+        settingData: state.settingPage.settingData,
+        setPost: state.settingPage.settingPost
+  }
+}
 
-                let settingChange = () => {
-                    store.dispatch(settingChangeActionCreator())
-
-                }
-
-                let settingPost = (setting) => {
-                    let action = settingPostActionCreator(setting)
-                    store.dispatch(action);
-                }
-
-                return <Settings settingChange={settingChange} settingPost={settingPost}
-                                 settingData={state.settingPage.settingData}
-                                 setPost={state.settingPage.settingPost}
-                />
-            }
-            }
-        </StoreContext.Consumer>
+let mapDispatchToProps = (dispatch) => {
+    return {
+        settingChanges: () => {
+            dispatch(settingChangeActionCreator())
+        },
+        settingPosts: (setting) => {
+            dispatch(settingPostActionCreator(setting));
+        }
+    }
 
 }
+
+
+const settingsContainer = connect(mapStateToProps, mapDispatchToProps)(Settings);
 
 export  default settingsContainer;
