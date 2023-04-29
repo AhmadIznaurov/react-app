@@ -18,16 +18,17 @@ const newsReducer = (state= initialState, action) => {
                 message: state.onNewsPost,
                 LikesCount: 'Like ' + 12
             }
-            let stateCopy = {...state};
-            stateCopy.newsPostData = [...state.newsPostData]
-            stateCopy.newsPostData.push(newsTextData)
-            stateCopy.onNewsPost = '';
-            return stateCopy;
+            return {
+                ...state,
+                newsPostData: [...state.newsPostData, newsTextData],
+                onNewsPost: ''
+            }
         }
         case ON_POST_NEWS_ELEMENT: {
-            let stateCopy = {...state};
-            stateCopy.onNewsPost = action.message
-            return stateCopy;
+            return  {
+                ...state,
+                onNewsPost: action.message
+            }
         }
         default:
             return state;

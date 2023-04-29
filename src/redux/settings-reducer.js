@@ -17,16 +17,17 @@ const settingsReducer = (state = initializeState, action) => {
                     message: state.settingPost,
                     likesCount: 12
                 }
-            let stateCopy = {...state};
-            stateCopy.settingData = [...state.settingData]
-            stateCopy.settingData.push(setPost)
-            stateCopy.settingPost = '';
-            return stateCopy;
+                return {
+                ...state,
+                    settingData: [...state.settingData, setPost],
+                    settingPost: ''
+                }
         }
    case SETTING_POST: {
-       let stateCopy = {...state};
-       stateCopy.settingPost = action.post;
-       return stateCopy;
+       return {
+           ...state,
+           settingPost: action.post
+       }
    }
         default:
             return state;

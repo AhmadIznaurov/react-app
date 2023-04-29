@@ -21,17 +21,18 @@ const newsReducer = (state = initializeState, action) => {
                   message: state.postMusic,
                   likesCount: 200
               }
-          let stateCopy = {...state};
-          stateCopy.postMusic = [...state.postMusic]
-          stateCopy.musicData.push(musics);
-          stateCopy.postMusic = '';
-          return stateCopy;
+              return {
+              ...state,
+                  musicData: [...state.musicData, musics],
+                  postMusic: ''
+              }
       }
       case
           ADD_POST_MUSIC: {
-          let stateCopy = {...state};
-          stateCopy.postMusic = action.newMusic;
-          return stateCopy;
+          return {
+              ...state,
+              postMusic: action.newMusic
+          }
       }
        default:
            return state;
