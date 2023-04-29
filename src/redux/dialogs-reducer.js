@@ -43,16 +43,18 @@ const dialogsReducer = (state = initializeState, action) => {
                 message: state.dialogsPost,
                 likesCount: 20
             }
-            let stateCopy = {...state};
-            stateCopy.dialogPostData = [...state.dialogPostData]
-            stateCopy.dialogPostData.push(buttonDialog);
-            stateCopy.dialogsPost = '';
-            return stateCopy;
+            return  {
+                ...state,
+                dialogPostData: [...state.dialogPostData, buttonDialog],
+                dialogsPost: ''
+            }
         }
         case ADD_DIALOG: {
-            let stateCopy = {...state}
-            stateCopy.dialogsPost = action.addPostDialog;
-            return state;
+            return {
+
+                ...state,
+                dialogsPost: action.addPostDialog
+            }
         }
         default:
             return state;
