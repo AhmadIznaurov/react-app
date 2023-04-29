@@ -10,19 +10,24 @@ let initializeState = {
 
 const settingsReducer = (state = initializeState, action) => {
     switch (action.type) {
-        case SETTING_CHANGE:
-        let setPost =
-            {
-                id: 1,
-                message: state.settingPost,
-                likesCount: 12
-            }
-        state.settingData.push(setPost)
-        state.settingPost = '';
-        return state;
-   case SETTING_POST:
-        state.settingPost = action.post;
-        return state;
+        case SETTING_CHANGE: {
+            let setPost =
+                {
+                    id: 1,
+                    message: state.settingPost,
+                    likesCount: 12
+                }
+            let stateCopy = {...state};
+            stateCopy.settingData = [...state.settingData]
+            stateCopy.settingData.push(setPost)
+            stateCopy.settingPost = '';
+            return stateCopy;
+        }
+   case SETTING_POST: {
+       let stateCopy = {...state};
+       stateCopy.settingPost = action.post;
+       return stateCopy;
+   }
         default:
             return state;
     }

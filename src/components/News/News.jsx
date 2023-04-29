@@ -9,12 +9,12 @@ const news = (props) => {
     const addRefElement = React.createRef()
 
     const addPostNewsElement = () => {
-        props.addPostNewsElement()
+        props.addPostNewsElements()
     }
 
     const OnPostNewsElement = () => {
         let text = addRefElement.current.value
-        props.OnPostNewsElement(text)
+        props.OnPostNewsElements(text)
     }
 
     return (
