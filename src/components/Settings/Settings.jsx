@@ -10,12 +10,12 @@ const settings = (props) => {
     let newSettingElement = React.createRef()
 
     let settingChange = () => {
-        props.settingChange()
+        props.settingChanges()
 
     }
     let settingPost = () => {
     let setting = newSettingElement.current.value;
-    props.settingPost(setting);
+    props.settingPosts(setting);
 }
 
     return (

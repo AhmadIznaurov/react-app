@@ -16,13 +16,13 @@ const Dialogs = (props) => {
 
 
   let addButtonDialog = () => {
-      props.addButtonDialog()
+      props.addButtonDialogs()
 
   }
 
     let addDialog = () => {
         let text = newDialogsElement.current.value;
-         props.addDialog(text)
+         props.addDialogs(text)
     }
 
     return (

@@ -14,19 +14,25 @@ let initializeState = {
 
 const newsReducer = (state = initializeState, action) => {
    switch (action.type) {
-      case ADD_MUSIC:
-           let musics =
-               {
-                   id: 1,
-                   message: state.postMusic,
-                   likesCount: 200
-               }
-           state.musicData.push(musics);
-           state.postMusic= '';
-           return state;
-       case ADD_POST_MUSIC:
-        state.postMusic = action.newMusic;
-        return state;
+      case ADD_MUSIC: {
+          let musics =
+              {
+                  id: 1,
+                  message: state.postMusic,
+                  likesCount: 200
+              }
+          let stateCopy = {...state};
+          stateCopy.postMusic = [...state.postMusic]
+          stateCopy.musicData.push(musics);
+          stateCopy.postMusic = '';
+          return stateCopy;
+      }
+      case
+          ADD_POST_MUSIC: {
+          let stateCopy = {...state};
+          stateCopy.postMusic = action.newMusic;
+          return stateCopy;
+      }
        default:
            return state;
     }

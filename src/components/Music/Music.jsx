@@ -12,12 +12,12 @@ const Music = (props) => {
     let musicChangePost = React.createRef();
 
     let addMusic = () => {
-        props.addMusic()
+        props.addMusics()
     }
 
  let addPostMusic = () => {
         let textMusic = musicChangePost.current.value;
-        props.addPostMusic(textMusic);
+        props.addPostMusics(textMusic);
  }
 
 

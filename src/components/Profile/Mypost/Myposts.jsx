@@ -12,12 +12,12 @@ const Myposts = (props) => {
 
 
     let profilePageAdd = () => {
-        props.addPost();
+        props.profilePageAdd();
     }
 
     let onPostChanged = () => {
-        let what = newPostElement.current.value
-        props.updateNewPostText(what);
+        let text = newPostElement.current.value
+        props.onPostChanged(text);
     }
 
     return (
